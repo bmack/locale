@@ -1,0 +1,30 @@
+{
+	"name": "b13/locale",
+	"type": "typo3-cms-extension",
+	"description": "Adds locales to all TCA tables",
+	"homepage": "https://b13.com",
+	"license": ["GPL-2.0-or-later"],
+	"authors": [{
+		"name": "Benni Mack",
+		"email": "benni@b13.com",
+		"role": "Maintainer"
+	}],
+	"require": {
+		"typo3/cms-core": ">=10.4.0 <11.0.0"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "locale"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"B13\\Locale\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"B13\\Locale\\Tests\\": "Tests/"
+		}
+	}
+}

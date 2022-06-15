@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  B13\Locale\:
+    resource: '../Classes/*'
+
+  B13\Locale\Database\Schema\TcaSchemaExtender:
+    tags:
+      - name: event.listener
+        identifier: 'locale'
+        method: 'addLocalesToTcaColumns'
+        event: TYPO3\CMS\Core\Database\Event\AlterTableDefinitionStatementsEvent
+
+  B13\Locale\Command\PopulateCommand:
+    tags:
+      - name: 'console.command'
+        command: 'locale:populate'
+
+  B13\Locale\Command\IntegrityCommand:
+    tags:
+      - name: 'console.command'
+        command: 'locale:integrity'
+
+  B13\Locale\Command\SynchronizeCommand:
+    tags:
+      - name: 'console.command'
+        command: 'locale:synchronize'
